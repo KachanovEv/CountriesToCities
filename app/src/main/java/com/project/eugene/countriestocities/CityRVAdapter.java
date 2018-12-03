@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by x_prt_admin on 03.12.18
@@ -25,6 +26,7 @@ class CityRVAdapter extends RecyclerView.Adapter<CityRVAdapter.CityHolder> {
     }
 
     public void setCityList(ArrayList<String> cityList) {
+        Collections.sort(cityList);
         this.cityList = cityList;
         notifyDataSetChanged();
     }
@@ -46,7 +48,7 @@ class CityRVAdapter extends RecyclerView.Adapter<CityRVAdapter.CityHolder> {
         cityHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "https://ru.wikipedia.org/wiki/" + cityName;
+                String url = "https://en.wikipedia.org/wiki/" + cityName;
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 context.startActivity(intent);
