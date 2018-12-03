@@ -61,11 +61,8 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(cityRVAdapter);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+
         getCountryListFromServer();
         getCountryListFromDB();
     }
